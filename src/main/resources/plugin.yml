@@ -1,0 +1,10 @@
+name: MinePhone
+main: com.celerry.minephone.MinePhone
+description: Fully featured, all-in-one Minecraft phone plugin
+version: @version@
+api-version: 1.17
+depend: [ProtocolLib]
+
+commands:
+  minephone:
+    description: Root MinePhone command
