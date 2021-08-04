@@ -6,6 +6,7 @@ import fr.mrmicky.fastinv.FastInv;
 import fr.mrmicky.fastinv.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -34,14 +35,9 @@ public class ErrorScreen extends FastInv {
         setItem(22, errorItem);
 
         ItemStack confirm = new ItemBuilder(Material.LIME_CONCRETE).name(color("&a&lOkay")).build();
-        setItem(40, confirm, e -> {
+        setItem(49, confirm, e -> {
             this.player.closeInventory();
         });
-
-    }
-
-    @Override
-    public void onOpen(InventoryOpenEvent event) {
 
     }
 
