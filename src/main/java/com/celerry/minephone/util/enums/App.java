@@ -12,7 +12,12 @@ public enum App {
     MUSIC_NAME,
     MUSIC_BASE64,
 
+    PHONE_NAME,
+    PHONE_BASE64,
+
     BACK_BASE64,
+    UP_BASE64,
+    DOWN_BASE64,
     NEXT_BASE64,
 
     MOON_BASE64,

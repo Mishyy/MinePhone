@@ -1,6 +1,7 @@
 package com.celerry.minephone.inventory;
 
 import com.celerry.minephone.inventory.apps.ClockScreen;
+import com.celerry.minephone.inventory.apps.ContactsScreen;
 import com.celerry.minephone.inventory.apps.MusicScreen;
 import com.celerry.minephone.inventory.apps.SettingsScreen;
 import com.celerry.minephone.util.enums.App;
@@ -60,6 +61,11 @@ public class HomeScreen extends FastInv {
         ItemStack music = new ItemBuilder(SkullCreator.itemFromBase64(App.MUSIC_BASE64.toString())).name(color(App.MUSIC_NAME.toString())).build();
         setItem(14, music, e -> {
             new MusicScreen(this.player, item).open(this.player);
+        });
+
+        ItemStack phone = new ItemBuilder(SkullCreator.itemFromBase64(App.PHONE_BASE64.toString())).name(color(App.PHONE_NAME.toString())).build();
+        setItem(21, phone, e -> {
+            new ContactsScreen(this.player, item, 0).open(this.player);
         });
 
     }
