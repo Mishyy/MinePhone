@@ -42,15 +42,6 @@ public class HomeScreen extends FastInv {
         ItemStack settings = new ItemBuilder(SkullCreator.itemFromBase64(App.SETTINGS_BASE64.toString())).name(color(App.SETTINGS_NAME.toString())).build();
         setItem(12, settings, e -> {
             new SettingsScreen(this.player, item).open(this.player);
-            // Settings app will contain:
-
-            // Date of this phone's creation (stored in NBT as a long, converted to days)
-            // Who this phone was "sold" to (who spawned it in pretty much) [saved as a name, dont bother with uuids. too much hassle for a cool lil feature]
-            // Phone type [configurable, saved as nbt maybe]
-
-            // beyond that, regular settings. themes etc.
-            // all customisation options (themes and shit) are saved PER PHONE, using nbt.
-
         });
 
         ItemStack clock = new ItemBuilder(SkullCreator.itemFromBase64(App.CLOCK_BASE64.toString())).name(color(App.CLOCK_NAME.toString())).build();
