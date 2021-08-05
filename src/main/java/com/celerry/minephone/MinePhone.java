@@ -5,8 +5,6 @@ import com.celerry.minephone.listeners.ChatWhileInCall;
 import com.celerry.minephone.listeners.EndCallOnLeave;
 import com.celerry.minephone.listeners.GivePhoneRecipe;
 import com.celerry.minephone.listeners.OpenPhone;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
 import com.raus.craftLib.CraftLib;
 import com.raus.craftLib.ExactShapedRecipe;
 import fr.mrmicky.fastinv.FastInvManager;
@@ -26,20 +24,15 @@ public final class MinePhone extends JavaPlugin {
 
     private static MinePhone plugin;
     private static CraftLib craftLib;
-    private static ProtocolManager protocolManager;
 
     public static MinePhone getPlugin() {
         return plugin;
     }
 
-    public static ProtocolManager getProtocolManager() {
-        return protocolManager;
-    }
 
     @Override
     public void onLoad() {
         plugin = this;
-        protocolManager = ProtocolLibrary.getProtocolManager();
         saveDefaultConfig();
     }
 
