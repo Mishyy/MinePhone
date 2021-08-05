@@ -10,7 +10,4 @@ Fully featured, all-in-one Minecraft phone plugin
 - Settings
 - Music
 - Time
-
-### Planned Apps
-- Contacts
 - Phone
