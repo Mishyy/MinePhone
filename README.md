@@ -17,3 +17,6 @@ Fully featured, all-in-one Minecraft phone plugin. To get a phone, you must craf
 ## Dependencies
 MinePhone depends on the following plugin:
 - [CraftLib](https://www.spigotmc.org/resources/craftlib.79163/)
+
+## License
+GPL-3.0
