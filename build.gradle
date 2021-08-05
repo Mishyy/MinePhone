@@ -62,6 +62,7 @@ dependencies {
     compile 'fr.mrmicky:FastInv:3.0.3'
     compile 'de.tr7zw:item-nbt-api:2.8.0'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    compileOnly 'com.github.Rausy:craft-lib:v1.0'
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.7.0";
     compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
 }
