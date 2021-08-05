@@ -1,6 +1,7 @@
 package com.celerry.minephone.listeners;
 
 import com.celerry.minephone.MinePhone;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,6 +34,8 @@ public class ChatWhileInCall implements Listener {
         Stream.of(player,other).forEach(p -> {
             p.sendMessage(color("&b&lCALL &f"+player.getName()+"&b: ")+ ChatColor.AQUA+message);
         });
+
+        Bukkit.getLogger().info("Call Message ("+player.getName()+"->"+other.getName()+"): "+message);
     }
 
 }
