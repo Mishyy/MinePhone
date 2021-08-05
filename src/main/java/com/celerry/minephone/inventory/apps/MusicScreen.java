@@ -42,7 +42,6 @@ public class MusicScreen extends FastInv {
             ItemStack discItem = new ItemBuilder(Material.valueOf("MUSIC_DISC_"+names[step].toUpperCase())).build();
             int finalStep = step;
             setItem(getScreen()[step], discItem, e -> {
-                // Stop ALL sounds using ProtocolLib
                 stopAllSounds(this.player);
                 // Play music
                 player.playSound(player.getLocation(), Sound.valueOf("MUSIC_DISC_"+names[finalStep].toUpperCase()), 9999, 1);

@@ -9,6 +9,7 @@ import fr.mrmicky.fastinv.FastInv;
 import fr.mrmicky.fastinv.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -39,13 +40,12 @@ public class MusicScreenPg2 extends FastInv {
 
         int step = 0;
         for (int i = 0; i < 4; i++) {
-            ItemStack discItem = new ItemBuilder(Material.valueOf("MUSIC_DISC_"+names[step].toUpperCase())).build();
+            ItemStack discItem = new ItemBuilder(Material.valueOf("MUSIC_DISC_"+names[step].toUpperCase())).name(color("&f"+names[step])).build();
             int finalStep = step;
             setItem(getScreen()[step], discItem, e -> {
-                // Stop ALL sounds using ProtocolLib
                 stopAllSounds(this.player);
                 // Play music
-                player.playSound(player.getLocation(), Sound.valueOf("MUSIC_DISC_"+names[finalStep].toUpperCase()), 9999, 1);
+                this.player.playSound(player.getLocation(), Sound.valueOf("MUSIC_DISC_"+names[finalStep].toUpperCase()), SoundCategory.RECORDS,  9999, 1);
             });
             step++;
         }
@@ -55,6 +55,7 @@ public class MusicScreenPg2 extends FastInv {
         setItem(40, stopButton, e -> {
             stopAllSounds(this.player);
         });
+
 
         // Back page
         ItemStack backPage = new ItemBuilder(SkullCreator.itemFromBase64(App.BACK_BASE64.toString())).name(color("&fLast Page")).build();
