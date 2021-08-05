@@ -3,6 +3,9 @@ Fully featured, all-in-one Minecraft phone plugin. To get a phone, you must craf
 
 ![Crafting Recipe](./github/crafting.png)
 
+Here's a gif of the plugin being used:
+
+![GIF of the Plugin in action](./github/minephone.gif)
 ## Features
 - Per-phone customisation options
 - Portable personal music player
