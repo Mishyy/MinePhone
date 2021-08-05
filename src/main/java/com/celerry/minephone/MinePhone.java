@@ -3,6 +3,7 @@ package com.celerry.minephone;
 import com.celerry.minephone.commands.MinephoneCommand;
 import com.celerry.minephone.events.listeners.CallOpenPhoneEvent;
 import com.celerry.minephone.listeners.ChatWhileInCall;
+import com.celerry.minephone.listeners.EndCallOnLeave;
 import com.celerry.minephone.listeners.OpenPhone;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
@@ -37,5 +38,6 @@ public final class MinePhone extends JavaPlugin {
         new CallOpenPhoneEvent(this);
         new OpenPhone(this);
         new ChatWhileInCall(this);
+        new EndCallOnLeave(this);
     }
 }
