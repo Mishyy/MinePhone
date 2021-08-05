@@ -52,7 +52,7 @@ shadowJar {
     archiveVersion.set(project.property("version"))
     relocate 'fr.mrmicky.fastinv', 'com.celerry.fastinv'
     relocate 'de.tr7zw.changeme', 'de.tr7zw.minephone'
-    relocate 'dev.dbasset.skullcreator', 'com.celerry.skullcreator'
+    relocate 'dev.dbassett.skullcreator', 'com.celerry.skullcreator'
 }
 
 tasks.build.dependsOn tasks.shadowJar
