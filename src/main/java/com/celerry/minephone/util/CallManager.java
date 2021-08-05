@@ -32,6 +32,9 @@ public class CallManager {
         // Send message
         sender.sendMessage(color("&7[&bMinePhone&7] &aCall started with "+receiver.getName()));
         receiver.sendMessage(color("&7[&bMinePhone&7] &aCall started with "+sender.getName()));
+
+        // Log
+        Bukkit.getLogger().info("Call Started ("+sender.getName()+"&"+receiver.getName()+")");
     }
 
     public static void endCall(Player player) {
@@ -41,6 +44,9 @@ public class CallManager {
         // Send message
         inCallWith(player).sendMessage(color("&7[&bMinePhone&7] &aCall ended with "+player.getName()));
         player.sendMessage(color("&7[&bMinePhone&7] &aCall ended with "+inCallWith(player).getName()));
+
+        // Log
+        Bukkit.getLogger().info("Call Ended ("+player.getName()+"&"+inCallWith(player).getName()+")");
 
         // Remove from calls
         calls.remove(uuid);
