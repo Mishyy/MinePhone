@@ -1,5 +1,7 @@
 # MinePhone
-Fully featured, all-in-one Minecraft phone plugin
+Fully featured, all-in-one Minecraft phone plugin. To get a phone, you must craft one using the following recipe:
+
+![Crafting Recipe](./github/crafting.png)
 
 ## Features
 - Per-phone customisation options
@@ -11,3 +13,7 @@ Fully featured, all-in-one Minecraft phone plugin
 - Music
 - Time
 - Phone
+
+## Dependencies
+MinePhone depends on the following plugin:
+- [CraftLib](https://www.spigotmc.org/resources/craftlib.79163/)

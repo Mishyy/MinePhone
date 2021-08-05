@@ -1,6 +1,7 @@
 name: MinePhone
 main: com.celerry.minephone.MinePhone
 author: celerry
+website: https://github.com/celerry/MinePhone
 description: Fully featured, all-in-one Minecraft phone plugin
 version: @version@
 api-version: 1.17
