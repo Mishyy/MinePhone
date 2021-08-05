@@ -16,8 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
-import static com.celerry.minephone.util.CallManager.createCall;
-import static com.celerry.minephone.util.CallManager.isInCall;
+import static com.celerry.minephone.util.CallManager.*;
 import static com.celerry.minephone.util.Msg.color;
 
 public class ContactsScreen extends FastInv {
@@ -45,19 +44,19 @@ public class ContactsScreen extends FastInv {
 
         int step = 0;
         for (int i = 0; i < contacts.length; i++) {
-            ItemStack contact = new ItemBuilder(SkullCreator.itemFromName(contacts[step].getName())).name(color("&f"+contacts[step].getName())).build();
+            ItemStack contact = new ItemBuilder(SkullCreator.itemFromUuid(contacts[step].getUniqueId())).name(color("&f"+contacts[step].getName())).build();
             int finalStep = step;
             setItem(getScreen()[step], contact, e -> {
                 if(this.player.getName().equals(contacts[finalStep].getName())) {
                     new ErrorScreen(this.player, item, "Can't call yourself").open(this.player);
                     return;
                 }
-                if(isInCall(this.player)) {
-                    new ErrorScreen(this.player, item, "Already in a call").open(this.player);
+                if(isInCall(this.player) || isInRingState(this.player)) {
+                    new ErrorScreen(this.player, item, "You're already in or receiving a call").open(this.player);
                     return;
                 }
-                if(isInCall(contacts[finalStep])) {
-                    new ErrorScreen(this.player, item, "Player is already in a call").open(this.player);
+                if(isInCall(contacts[finalStep]) || isInRingState(contacts[finalStep])) {
+                    new ErrorScreen(this.player, item, "Player is already in or receiving a call").open(this.player);
                     return;
                 }
                 if(!contacts[finalStep].isOnline()) {
@@ -65,9 +64,9 @@ public class ContactsScreen extends FastInv {
                     return;
                 }
 
-                // Start call
-                createCall(this.player, contacts[finalStep]);
-
+                // Start ring
+                createRing(this.player, contacts[finalStep]);
+                new RingManageScreen(this.player, item).open(this.player);
             });
             step++;
         }

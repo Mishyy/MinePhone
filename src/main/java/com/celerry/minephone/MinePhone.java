@@ -10,6 +10,8 @@ import com.comphenix.protocol.ProtocolManager;
 import fr.mrmicky.fastinv.FastInvManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import static com.celerry.minephone.util.CallManager.startRingScheduler;
+
 public final class MinePhone extends JavaPlugin {
 
     private static MinePhone plugin;
@@ -34,6 +36,7 @@ public final class MinePhone extends JavaPlugin {
     public void onEnable() {
         FastInvManager.register(this);
         this.getCommand("minephone").setExecutor(new MinephoneCommand(this));
+        startRingScheduler();
         // Listeners
         new CallOpenPhoneEvent(this);
         new OpenPhone(this);

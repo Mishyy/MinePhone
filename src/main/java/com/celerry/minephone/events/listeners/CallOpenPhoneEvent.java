@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -21,14 +22,16 @@ public class CallOpenPhoneEvent implements Listener {
     @EventHandler
     public void onClickItem(PlayerInteractEvent event) {
         if(event.getHand() == EquipmentSlot.OFF_HAND) return;
-        Player player = event.getPlayer();
-        ItemStack item = event.getItem();
+        if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            Player player = event.getPlayer();
+            ItemStack item = event.getItem();
 
-        if(item == null) { return; }
-        if(item.getItemMeta() == null) { return; }
-        if(item.getItemMeta().getDisplayName().equals(color("&bPhone"))) {
-            PlayerOpenPhoneEvent playerOpenPhoneEvent = new PlayerOpenPhoneEvent(player, item);
-            Bukkit.getPluginManager().callEvent(playerOpenPhoneEvent);
+            if(item == null) { return; }
+            if(item.getItemMeta() == null) { return; }
+            if(item.getItemMeta().getDisplayName().equals(color("&bPhone"))) {
+                PlayerOpenPhoneEvent playerOpenPhoneEvent = new PlayerOpenPhoneEvent(player, item);
+                Bukkit.getPluginManager().callEvent(playerOpenPhoneEvent);
+            }
         }
     }
 }
