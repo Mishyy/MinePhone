@@ -23,6 +23,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static com.celerry.minephone.util.CallManager.createCall;
+import static com.celerry.minephone.util.CallManager.isInCall;
 import static com.celerry.minephone.util.Msg.color;
 
 public class ContactsScreen extends FastInv {
@@ -55,7 +57,24 @@ public class ContactsScreen extends FastInv {
             setItem(getScreen()[step], contact, e -> {
                 if(this.player.getName().equals(contacts[finalStep].getName())) {
                     new ErrorScreen(this.player, item, "Can't call yourself").open(this.player);
+                    return;
                 }
+                if(isInCall(this.player)) {
+                    new ErrorScreen(this.player, item, "Already in a call").open(this.player);
+                    return;
+                }
+                if(isInCall(contacts[finalStep])) {
+                    new ErrorScreen(this.player, item, "Player is already in a call").open(this.player);
+                    return;
+                }
+                if(!contacts[finalStep].isOnline()) {
+                    new ErrorScreen(this.player, item, "Player is not online").open(this.player);
+                    return;
+                }
+
+                // Start call
+                createCall(this.player, contacts[finalStep]);
+
             });
             step++;
         }
