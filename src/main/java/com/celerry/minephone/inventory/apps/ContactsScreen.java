@@ -2,25 +2,18 @@ package com.celerry.minephone.inventory.apps;
 
 import com.celerry.minephone.inventory.ErrorScreen;
 import com.celerry.minephone.inventory.HomeScreen;
-import com.celerry.minephone.inventory.apps.ClockScreen;
-import com.celerry.minephone.inventory.apps.MusicScreen;
-import com.celerry.minephone.inventory.apps.SettingsScreen;
 import com.celerry.minephone.util.enums.App;
 import de.tr7zw.changeme.nbtapi.NBTCompound;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import dev.dbassett.skullcreator.SkullCreator;
 import fr.mrmicky.fastinv.FastInv;
 import fr.mrmicky.fastinv.ItemBuilder;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.IntStream;
 
 import static com.celerry.minephone.util.CallManager.createCall;

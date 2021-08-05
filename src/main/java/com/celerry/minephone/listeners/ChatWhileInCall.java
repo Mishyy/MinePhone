@@ -9,7 +9,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import java.net.http.WebSocket;
 import java.util.stream.Stream;
 
 import static com.celerry.minephone.util.CallManager.inCallWith;
