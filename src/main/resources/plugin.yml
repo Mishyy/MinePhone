@@ -6,7 +6,3 @@ description: Fully featured, all-in-one Minecraft phone plugin
 version: @version@
 api-version: 1.17
 depend: [CraftLib]
-
-commands:
-  minephone:
-    description: Root MinePhone command
