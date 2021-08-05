@@ -43,12 +43,38 @@ public class MusicScreenPg2 extends FastInv {
             ItemStack discItem = new ItemBuilder(Material.valueOf("MUSIC_DISC_"+names[step].toUpperCase())).name(color("&f"+names[step])).build();
             int finalStep = step;
             setItem(getScreen()[step], discItem, e -> {
+                // Stop ALL sounds using ProtocolLib
                 stopAllSounds(this.player);
                 // Play music
                 this.player.playSound(player.getLocation(), Sound.valueOf("MUSIC_DISC_"+names[finalStep].toUpperCase()), SoundCategory.RECORDS,  9999, 1);
             });
             step++;
         }
+
+        ItemStack creative = new ItemBuilder(Material.JUKEBOX).name(color("&fCreative")).build();
+        setItem(getScreen()[4], creative, e -> {
+            stopAllSounds(this.player);
+            this.player.playSound(player.getLocation(), Sound.MUSIC_CREATIVE, SoundCategory.RECORDS, 9999, 1);
+        });
+
+        ItemStack credits_pitch_2 = new ItemBuilder(Material.JUKEBOX).name(color("&fCredits")).lore(color("&7Pitch: 2")).build();
+        setItem(getScreen()[5], credits_pitch_2, e -> {
+            stopAllSounds(this.player);
+            this.player.playSound(player.getLocation(), Sound.MUSIC_CREDITS, SoundCategory.RECORDS, 9999, 2);
+        });
+
+        ItemStack credits = new ItemBuilder(Material.JUKEBOX).name(color("&fCredits")).build();
+        setItem(getScreen()[6], credits, e -> {
+            stopAllSounds(this.player);
+            this.player.playSound(player.getLocation(), Sound.MUSIC_CREDITS, SoundCategory.RECORDS, 9999, 1);
+        });
+
+
+        ItemStack game = new ItemBuilder(Material.JUKEBOX).name(color("&fGame")).build();
+        setItem(getScreen()[7], game, e -> {
+            stopAllSounds(this.player);
+            this.player.playSound(player.getLocation(), Sound.MUSIC_GAME, SoundCategory.RECORDS, 9999, 1);
+        });
 
         // Stop button
         ItemStack stopButton = new ItemBuilder(Material.RED_CONCRETE_POWDER).name(color("&fStop Music")).build();
@@ -66,10 +92,10 @@ public class MusicScreenPg2 extends FastInv {
     }
 
     private void stopAllSounds(Player player) {
-        String[] discs = {"13", "Cat", "Blocks", "Chirp", "Far", "Mall", "Mellohi", "Stal", "Strad", "Ward", "11", "Wait", "Pigstep"};
-        for (String disc: discs) {
-            Sound sound = Sound.valueOf("MUSIC_DISC_"+disc.toUpperCase());
-            player.stopSound(sound);
+        String[] sounds = {"MUSIC_CREATIVE", "MUSIC_CREDITS", "MUSIC_GAME", "MUSIC_DISC_13", "MUSIC_DISC_CAT", "MUSIC_DISC_BLOCKS", "MUSIC_DISC_CHIRP", "MUSIC_DISC_FAR", "MUSIC_DISC_MALL", "MUSIC_DISC_MELLOHI", "MUSIC_DISC_STAL", "MUSIC_DISC_STRAD", "MUSIC_DISC_WARD", "MUSIC_DISC_11", "MUSIC_DISC_WAIT", "MUSIC_DISC_PIGSTEP"};
+        for (String soundVal: sounds) {
+            Sound sound = Sound.valueOf(soundVal.toUpperCase());
+            player.stopSound(sound, SoundCategory.RECORDS);
         }
     }
 
