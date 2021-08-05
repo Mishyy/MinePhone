@@ -27,17 +27,14 @@ public class ErrorScreen extends FastInv {
         // Set the background and screen
         setItems(getBackground(), new ItemBuilder(getThemeMaterial(item)).name(" ").build());
         setItems(getScreen(), new ItemBuilder(Material.WHITE_STAINED_GLASS_PANE).name(" ").build());
-
+        // Home button
+        ItemStack homeButton = new ItemBuilder(Material.COAL_BLOCK).name(color("&fHome Button")).build();
+        setItem(49, homeButton, e -> {
+            new HomeScreen(this.player, item).open(this.player);
+        });
         // Application Content
-
-
         ItemStack errorItem = new ItemBuilder(Material.BARRIER).name(color("&cError")).addLore(color("&7"+error)).build();
         setItem(22, errorItem);
-
-        ItemStack confirm = new ItemBuilder(Material.LIME_CONCRETE).name(color("&a&lOkay")).build();
-        setItem(49, confirm, e -> {
-            this.player.closeInventory();
-        });
 
     }
 
